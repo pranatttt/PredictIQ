@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="assistant2.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Assistant</title>
+    <!-- ✅ Load marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <a href="dashboard.html"><div class="logo-icon">FD</div></a>
+        <div class="logo-text">Home</div>
+      </div>
+      <div class="logo-text">Forecasting Assistant</div>
+    </div>
+    <div class="sidebar">
+      <button class="new-chat-btn" onclick="startNewSession()">
+        <span>+</span> New chat
+      </button>
+      <div class="chat-history" id="chatHistory"></div>
+    </div>
+    <div class="main-content">
+      <div id="sessionTitleBar" class="session-title-bar" style="display: none">
+        <span class="session-label">Session:</span>
+        <span class="session-title" id="sessionTitle"></span>
+      </div>
+      <div class="chat-container" id="chatContainer"></div>
+      <div class="input-area">
+        <div class="input-container">
+          <textarea
+            class="chat-input"
+            id="chatInput"
+            placeholder="Forecast your Sale..."
+            rows="1"
+          ></textarea>
+
+          <button class="send-button" id="sendButton" onclick="sendMessage()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7 11L12 6L17 11M12 18V7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="assistant2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="dashboard.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+      .sales-assistant-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      .sales-assistant-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+      }
+
+      .sales-assistant-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .sales-assistant-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1>DASHBOARD</h1>
+          <div class="nav-tabs">
+            <a href="#" class="nav-tab active">SNAPSHOT</a>
+            <a href="#" class="nav-tab">MARKETING</a>
+            <a href="#" class="nav-tab">SALES</a>
+            <a href="#" class="nav-tab">CASHFLOW</a>
+            <a href="#" class="nav-tab">CAPACITY</a>
+            <button class="sales-assistant-btn" id="salesAssistantBtn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="assistant.html" />
+              </svg>
+              Sales Assistant
+            </button>
+          </div>
+        </div>
+        <div class="company-info1">
+          <span>Select Store : </span>
+          <select id="store-selector">
+            <option value="1">Store 1</option>
+            <option value="2">Store 2</option>
+            <option value="3">Store 3</option>
+            <option value="4">Store 4</option>
+            <option value="5">Store 5</option>
+            <option value="6">Store 6</option>
+            <option value="7">Store 7</option>
+            <option value="8">Store 8</option>
+            <option value="9">Store 9</option>
+            <option value="10">Store 10</option>
+            <option value="11">Store 11</option>
+            <option value="12">Store 12</option>
+            <option value="13">Store 13</option>
+            <option value="14">Store 14</option>
+            <option value="15">Store 15</option>
+            <option value="16">Store 16</option>
+            <option value="17">Store 17</option>
+            <option value="18">Store 18</option>
+            <option value="19">Store 19</option>
+            <option value="20">Store 20</option>
+          </select>
+        </div>
+        <div class="company-info">
+          <span>Giesecke + Devrient</span>
+          <select class="year-selector">
+            <option>2012</option>
+            <option>2011</option>
+            <option>2010</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon revenue"></div>
+            <div class="metric-label">Projected Revenue</div>
+          </div>
+          <div class="metric-value" id="revenue">$1,459K</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon margin"></div>
+            <div class="metric-label">Margin</div>
+          </div>
+          <div class="metric-value" id="margin">59%</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon opex"></div>
+            <div class="metric-label">Projected Opex</div>
+          </div>
+          <div class="metric-value" id="opex">$267K</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon profit"></div>
+            <div class="metric-label">Profit/Loss</div>
+          </div>
+          <div class="metric-value" id="profitloss">$-32K</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon cb"></div>
+            <div class="metric-label">Offset</div>
+          </div>
+          <div class="metric-value" id="cb">$1.6K</div>          
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon runway"></div>
+            <div class="metric-label">MOM Growth</div>
+          </div>
+          <div class="metric-value" id="runway">12%</div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <div class="alert-avatar">👤</div>
+        <div class="alert-content">
+          <div class="alert-meta">Update/ Wed, Mar 19, 2024</div>
+          <div class="alert-text">
+            🚨 Your LTV to CAC ratio is declining due to high acquisition costs
+            and higher churn rates from new customers in a new region. Consider
+            optimizing your marketing spend to improve profitability.
+          </div>
+        </div>
+        <a href="#" class="alert-link">VIEW PREVIOUS UPDATES</a>
+      </div>
+
+      <div class="main-content">
+        <div class="chart-section">
+          <h2 class="section-title">CASHFLOW MANAGEMENT</h2>
+
+          <div style="margin-bottom: 30px">
+            <h3 style="font-size: 14px; color: #718096; margin-bottom: 15px">
+              REVENUE ACTUAL VS PROJECTED
+            </h3>
+            <div class="chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size: 14px; color: #718096; margin-bottom: 15px">
+              PROFIT & LOSS
+            </h3>
+            <div class="profit-chart-container">
+              <canvas id="profitChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-metrics">
+          <div class="sidebar-card">
+            <div class="sidebar-metric">
+              <div class="sidebar-label">Prediction Accuracy</div>
+            </div>
+            <div class="sidebar-value" id="customers">95%</div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-metric">
+              <div class="sidebar-label">Best Performing Store</div>
+            </div>
+            <div class="sidebar-value" id="arpu">Store 1</div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-metric">
+              <div class="sidebar-label">Estimated Customers</div>
+            </div>
+            <div class="sidebar-value" id="churn">1000</div>
+          </div>
+
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Floating Chat Button -->
+    <div
+      id="iframe-popup"
+      style="
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 360px;
+        height: 500px;
+        background: rgb(14, 13, 13);
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        z-index: 998;
+        overflow: hidden;
+      "
+    >
+      <div
+        style="
+          background: #667eea;
+          color: white;
+          padding: 10px;
+          font-weight: bold;
+        "
+      >
+        💬 Forecasting Assistant
+        <button
+          onclick="document.getElementById('iframe-popup').style.display='none'"
+          style="
+            float: right;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+          "
+        >
+          ✖
+        </button>
+      </div>
+      <iframe
+        src="assistant2.html"
+        style="border: none; width: 100%; height: 100%"
+      ></iframe>
+    </div>
+    <!-- Floating Chat Button -->
+    <button
+      id="chat-toggle-btn"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #667eea;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 999;
+      "
+    >
+      💬
+    </button>
+
+    <script>
+      let revenueChart, profitChart;
+
+      // Revenue Chart
+      const revenueCtx = document
+        .getElementById("revenueChart")
+        .getContext("2d");
+      revenueChart = new Chart(revenueCtx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Revenue Actual",
+              data: [],
+              backgroundColor: "#68d391",
+              borderRadius: 4,
+              barThickness: 20,
+            },
+            {
+              label: "Revenue Projected",
+              data: [],
+              backgroundColor: "#a0d8a0",
+              borderRadius: 4,
+              barThickness: 20,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: (value) => "$" + value + "K",
+              },
+            },
+            x: { grid: { display: false } },
+          },
+        },
+      });
+
+      // Profit Chart
+      const profitCtx = document.getElementById("profitChart").getContext("2d");
+      profitChart = new Chart(profitCtx, {
+        type: "line",
+        data: {
+          labels: ["Q1", "Q2", "Q3", "Q4"],
+          datasets: [
+            {
+              label: "Profit",
+              data: [-50, -30, -20, -10],
+              borderColor: "#68d391",
+              backgroundColor: "rgba(104, 211, 145, 0.1)",
+              tension: 0.4,
+              fill: true,
+            },
+            {
+              label: "Loss",
+              data: [-60, -40, -25, -15],
+              borderColor: "#f56565",
+              backgroundColor: "rgba(245, 101, 101, 0.1)",
+              tension: 0.4,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              ticks: {
+                callback: function (value) {
+                  return "$" + value + "K";
+                },
+              },
+            },
+          },
+        },
+      });
+      // Interactive functionality
+      document.querySelectorAll(".nav-tab").forEach((tab) => {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".nav-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Simulate real-time updates
+      setInterval(() => {
+        const metrics = document.querySelectorAll(".metric-value");
+        metrics.forEach((metric) => {
+          const currentValue = metric.textContent;
+          // Add subtle animation or update logic here
+          metric.style.transform = "scale(1.02)";
+          setTimeout(() => {
+            metric.style.transform = "scale(1)";
+          }, 200);
+        });
+      }, 10000);
+
+      document
+        .getElementById("salesAssistantBtn")
+        .addEventListener("click", function () {
+          // Replace 'YOUR_SALES_ASSISTANT_URL' with your actual URL
+          const salesAssistantUrl = "assistant.html";
+
+          // Alternative: Open in same window
+          window.location.href = salesAssistantUrl;
+        });
+
+      // Optional: Add loading state
+      function showLoadingState() {
+        const btn = document.getElementById("salesAssistantBtn");
+        const originalText = btn.innerHTML;
+
+        btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 12 12" to="360 12 12" repeatCount="indefinite"/>
+                    </path>
+                </svg>
+                Loading...
+            `;
+        btn.disabled = true;
+
+        // Reset after 2 seconds (adjust as needed)
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }
+      // === Dynamic Dashboard Metrics by Year ===
+      // === Dynamic Dashboard Metrics by Year ===
+
+      // Initialize Revenue Chart
+
+      function updateDashboardMetrics(store, year) {
+        fetch(`http://localhost:8000/metrics/${store}/${year}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.error) {
+              console.error(data.error);
+              return;
+            }
+
+            // Update metrics
+            document.getElementById("revenue").innerText = data.revenue;
+            document.getElementById("margin").innerText = data.margin;
+            document.getElementById("opex").innerText = data.opex;
+            document.getElementById("profitloss").innerText = data.profitloss;
+            document.getElementById("cb").innerText = data.cb;
+            document.getElementById("runway").innerText = data.runway;
+            document.getElementById("customers").innerText = data.customers;
+            document.getElementById("arpu").innerText = data.arpu;
+            document.getElementById("churn").innerText = data.churn;
+
+            // Update Revenue Chart
+            if (revenueChart) {
+              revenueChart.data.datasets[0].data = data.monthly_revenue;
+              revenueChart.data.datasets[1].data = data.monthly_projected;
+              revenueChart.update();
+            }
+
+            // Update Profit Chart
+            if (profitChart) {
+              profitChart.data.datasets[0].data = data.quarterly_profit;
+              profitChart.data.datasets[1].data = data.quarterly_loss;
+              profitChart.update();
+            }
+          })
+          .catch((err) => console.error("Failed to load dashboard data", err));
+      }
+
+      document
+        .querySelector(".year-selector")
+        .addEventListener("change", function () {
+          const year = this.value;
+          const store = document.getElementById("store-selector").value;
+          updateDashboardMetrics(store, year);
+        });
+
+      document
+        .getElementById("store-selector")
+        .addEventListener("change", function () {
+          const store = this.value;
+          const year = document.querySelector(".year-selector").value;
+          updateDashboardMetrics(store, year);
+        });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const year = document.querySelector(".year-selector").value;
+        const store = document.getElementById("store-selector").value;
+
+        const revenueCtx = document
+          .getElementById("revenueChart")
+          .getContext("2d");
+        revenueChart = new Chart(revenueCtx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ],
+            datasets: [
+              {
+                label: "Revenue Actual",
+                data: [],
+                backgroundColor: "#68d391",
+                borderRadius: 4,
+                barThickness: 20,
+              },
+              {
+                label: "Revenue Projected",
+                data: [],
+                backgroundColor: "#a0d8a0",
+                borderRadius: 4,
+                barThickness: 20,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: (value) => "$" + value + "K",
+                },
+              },
+              x: { grid: { display: false } },
+            },
+          },
+        });
+
+        updateDashboardMetrics(store, year);
+      });
+
+      // Toggle chat popup visibility
+      document
+        .getElementById("chat-toggle-btn")
+        .addEventListener("click", () => {
+          const popup = document.getElementById("iframe-popup");
+          popup.style.display =
+            popup.style.display === "none" || !popup.style.display
+              ? "flex"
+              : "none";
+        });
+    </script>
+  </body>
+</html>

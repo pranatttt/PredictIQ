@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-tab {
+  padding: 10px 0;
+  color: #718096;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-tab.active {
+  color: #2d3748;
+  border-bottom-color: #48bb78;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #718096;
+}
+.company-info1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #718096;
+}
+
+.year-selector {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  padding: px 12px;
+  border-radius: 6px;
+  color: #4a5568;
+}
+.store-selector {
+  background: #e7e8e9;
+  border: 1px solid #e2e8f0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #4a5568;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.metric-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.metric-icon.revenue {
+  background: #f56565;
+}
+.metric-icon.margin {
+  background: #ed8936;
+}
+.metric-icon.opex {
+  background: #38b2ac;
+}
+.metric-icon.profit {
+  background: #68d391;
+}
+.metric-icon.cb {
+  background: #4299e1;
+}
+.metric-icon.runway {
+  background: #9f7aea;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 5px;
+}
+
+.metric-change {
+  font-size: 12px;
+  color: #68d391;
+}
+
+.alert-box {
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.alert-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4299e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-meta {
+  font-size: 12px;
+  color: #718096;
+  margin-bottom: 5px;
+}
+
+.alert-text {
+  color: #2d3748;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.alert-link {
+  color: #4299e1;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.chart-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.sidebar-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-label {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sidebar-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.sidebar-change {
+  font-size: 12px;
+  color: #68d391;
+  text-align: right;
+}
+
+.profit-chart-container {
+  height: 200px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

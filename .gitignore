@@ -1,0 +1,28 @@
+# Environments
+venv/
+new_env/
+env/
+
+# OS files (Windows)
+Thumbs.db
+*.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Env variables
+.env
+
+# Database files
+*.db
+*.sql
+*.sqlite3
+
+# Model files
+*.bin
+*.gguf
+*.pth
+
+# Logs
+*.log
