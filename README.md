@@ -141,16 +141,6 @@ Basic API status check.
 
 ---
 
-## 📌 Resume‑Ready Description
-
-PredictIQ – Walmart Sales Forecasting System (Python, FastAPI, PostgreSQL, HTML/CSS/JS)
-
-* Developed an end‑to‑end sales forecasting system using XGBoost on Walmart data with automated feature engineering (lags, rolling stats, percentage changes) and hyperparameter tuning via RandomizedSearchCV.
-* Implemented an automated data pipeline for continuous retraining, allowing new datasets to be ingested and models updated without manual steps.
-* Integrated trained models into a FastAPI backend with PostgreSQL storage and dynamic APIs serving predictions to an interactive web dashboard.
-
----
-
 ## 📦 Installation
 
 ```
